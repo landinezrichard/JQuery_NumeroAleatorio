@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8"/>
+		<title>Numero Aleatorio</title>
+		<!--Hojas de estilo -->		
+		<style type="text/css">
+			body,html{
+				background:#FFF;
+				margin:0;
+				padding:0;
+			}
+						
+			div{				
+				display:block;
+				margin:0 auto;
+				height:100px;				
+				width:400px;
+			}
+
+			.negrilla{
+				
+				font-weight:bold;
+			}
+			
+			p{
+				margin-left:10px;
+			}
+			
+		</style>	
+
+		
+		<!--Scripts Aca -->
+		<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js">		
+		</script>
+		
+		<script type="text/javascript">
+			
+			$(document).on("ready",function(){
+				$(function(){
+					$(":input").change(function(){
+						$("#n_range").html($("#rr").val());
+					});
+
+					$("#btn_range").click(function(){
+						rand = Math.floor((Math.random()*$("#rr").val())+1);
+						$("#result_random").html("Número aleatorio: "+rand);
+					});
+				});
+			});
+		</script>
+		
+	</head>
+	<body>
+		<form>
+			Seleccionar un número del 1 al 
+			<input type="range" id="rr" min="1" max="1000" value="500">
+				<span id="n_range"></span>
+				<button type="button" id="btn_range">Obtener número aleatorio</button>
+			<div id="result_random"></div>
+		</form>
+		<p>
+			Javascript provee de una clase llamada Math la cual permite realizar ciertas operaciones matemáticas, entre ellas se encuentra los métodos floor y random:
+		</p>
+		<p>
+			<span class="negrilla">floor:</span> devuelve un número entero, eliminando los decimales, no importa que los decimales se aproximen más al siguiente entero, por ejemplo, si ejecutas alert(Math.floor(12.8)); te devolverá 12, al igual que si ejecutas un decimal menor, alert(Math.floor(12.1)); también te devolverá 12, este método es necesario para realizar el número aleatorio de lo contrario devolverá números decimales.
+		</p>
+		<p>
+			<span class="negrilla">random:</span> devuelve un número aleatorio multiplicado por un máximo valor y "+1" hace referencia al número incial. (Math.random()*maximo_valor)+1
+		</p>
+		<p>
+			En el ejemplo se puede ver una demostración para crear números aleatorios, puedes utilizar un rango de números hasta un valor máximo de 1000 y un mínimo de 1. 
+		</p>
+		
+		<p>Sacado de:
+			<a href="http://jquery-manual.blogspot.com/2013/09/rand-en-javascript-numeros-aleatorios.html">http://jquery-manual.blogspot.com/2013/09/rand-en-javascript-numeros-aleatorios.html</a>
+		</p>
+	</body>
+</html>
